@@ -18,6 +18,7 @@
 
     <modules>
         <module>test-sb3</module>
+        <module>db</module>
     </modules>
 
     <properties>

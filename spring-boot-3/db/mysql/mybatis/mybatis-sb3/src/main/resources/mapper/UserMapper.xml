@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.sb3.mybatis.mapper.UserMapper">
+    <select id="getAllUsers" resultType="org.example.sb3.mybatis.domain.User">
+        select id, user_name userName, age from t_user
+    </select>
+
+    <select id="findByUserName" resultType="org.example.sb3.mybatis.domain.User">
+        select id, user_name userName, age from t_user where user_name = #{name}
+    </select>
+
+    <insert id="insertOne">
+        insert into t_user(user_name, age) values(#{userName}, #{age})
+    </insert>
+
+    <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user(user_name, age) values
+        <foreach collection="userlist" separator="," item="item">
+            (#{item.userName}, #{item.age})
+        </foreach>
+    </insert>
+
+    <insert id="insertAndGetId" parameterType="org.example.sb3.mybatis.domain.User" useGeneratedKeys="true" keyProperty="id">
+        <!--<selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">-->
+        <!--    SELECT LAST_INSERT_ID()-->
+        <!--</selectKey>-->
+        insert into t_user(user_name, age) values(#{userName}, #{age})
+    </insert>
+
+    <select id="findByIndex" resultType="org.example.sb3.mybatis.domain.User">
+        select id, user_name userName, age from t_user
+        where user_name = #{arg0} and age = #{arg1}
+    </select>
+
+    <select id="findByMap" resultType="org.example.sb3.mybatis.domain.User">
+        select id, user_name userName, age from t_user
+        where user_name = #{userName} and age = #{age}
+    </select>
+
+    <select id="findByParam" resultType="org.example.sb3.mybatis.domain.User">
+        select id, user_name userName, age from t_user
+        where user_name = #{userName} and age = #{age}
+    </select>
+
+    <select id="namein" resultType="org.example.sb3.mybatis.domain.User">
+        select id, user_name userName, age from t_user
+        <where>
+            <if test="names != null and names.size > 0">
+                 and user_name in
+                <foreach collection="names" item="name" open="(" separator="," close=")">
+                    #{name}
+                </foreach>
+            </if>
+        <if test="name != null and name != ''">
+            and user_name != #{name}
+        </if>
+        </where>
+    </select>
+</mapper>

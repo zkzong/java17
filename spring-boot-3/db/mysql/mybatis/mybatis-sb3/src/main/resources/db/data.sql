@@ -1,0 +1,1 @@
+insert into t_user(user_name, age) VALUES ('java', 30);
