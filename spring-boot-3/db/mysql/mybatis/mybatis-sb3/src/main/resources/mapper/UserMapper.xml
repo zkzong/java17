@@ -25,6 +25,10 @@
         insert into t_user(user_name, age) values(#{userName}, #{age})
     </insert>
 
+    <insert id="insertOneWithDate">
+        insert into t_user(user_name, age, create_time, update_time) values(#{userName}, #{age}, #{createTime}, #{updateTime})
+    </insert>
+
     <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id">
         insert into t_user(user_name, age) values
         <foreach collection="userlist" separator="," item="item">

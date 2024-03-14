@@ -14,6 +14,8 @@ public interface UserService {
 
     void insertOne(String userName, int age);
 
+    void insertOneWithDate(User user);
+
     int insertBatch(List<User> userList);
 
     int insertAndGetId(User users);

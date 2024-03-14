@@ -20,8 +20,14 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/insert")
-    public String insert(@RequestBody User users) {
-        userService.insertAndGetId(users);
+    public String insert(@RequestBody User user) {
+        userService.insertAndGetId(user);
+        return "success";
+    }
+
+    @PostMapping("/insertwithdate")
+    public String insertWithDate(@RequestBody User user) {
+        userService.insertOneWithDate(user);
         return "success";
     }
 

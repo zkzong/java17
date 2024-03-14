@@ -30,13 +30,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void insertOneWithDate(User user) {
+        userMapper.insertOneWithDate(user);
+    }
+
+    @Override
     public int insertBatch(List<User> userList) {
         return userMapper.insertBatch(userList);
     }
 
     @Override
-    public int insertAndGetId(User users) {
-        return userMapper.insertAndGetId(users);
+    public int insertAndGetId(User user) {
+        return userMapper.insertAndGetId(user);
     }
 
     @Override
