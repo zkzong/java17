@@ -20,6 +20,7 @@
         <module>test-sb3</module>
         <module>db</module>
         <module>nacos</module>
+        <module>apollo</module>
     </modules>
 
     <properties>
