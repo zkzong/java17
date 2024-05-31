@@ -1,0 +1,19 @@
+# Spring配置
+spring:
+  # rabbitmq 配置信息
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    #1、确保消息从发送端到服务端投递可靠（分为以下两个步骤）
+    #1.1、确认消息已发送到交换机(Exchange) 可以把publisher-confirms: true 替换为  publisher-confirm-type: correlate
+    publisher-confirm-type: correlated
+    #1.2、确认消息从交换机中到队列中
+    publisher-returns: true
+  application:
+    name: yf-producer
+#  profiles:
+#    active: @profiles.active@
+server:
+  port: 8082
