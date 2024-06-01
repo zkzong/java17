@@ -14,6 +14,8 @@
     <modules>
         <module>rabbitmq-producer</module>
         <module>rabbitmq-consumer</module>
+        <module>rabbitmq-producer-deadletter</module>
+        <module>rabbitmq-consumer-deadletter</module>
     </modules>
 
     <properties>

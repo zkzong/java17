@@ -1,0 +1,15 @@
+
+# Spring配置
+spring:
+  # rabbitmq 配置信息
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  application:
+    name: yf-producer
+#  profiles:
+#    active: @profiles.active@
+server:
+  port: 8082
