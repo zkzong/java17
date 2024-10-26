@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 /**
+ * WebFlux
+ *
  * @author zong
  */
 @Slf4j
@@ -15,16 +17,26 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/webflux")
 public class WebFluxController {
 
+    /**
+     * get请求
+     *
+     * @return
+     */
     @GetMapping("/get")
     public Mono<String> get() {
         log.info("get");
-        return Mono.just("success");
+        return Mono.just("get");
     }
 
+    /**
+     * post请求
+     *
+     * @return
+     */
     @PostMapping("/post")
-    public String post() {
+    public Mono<String> post() {
         log.info("post");
-        return "success";
+        return Mono.just("post");
     }
 
 }

@@ -14,12 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 
+    /**
+     * get请求
+     *
+     * @return
+     */
     @GetMapping("/get")
     public String get() {
         log.info("get");
         return "success";
     }
 
+    /**
+     * post请求
+     *
+     * @return
+     */
     @PostMapping("/post")
     public String post() {
         log.info("post");
