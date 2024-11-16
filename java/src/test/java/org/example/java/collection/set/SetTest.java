@@ -1,6 +1,8 @@
 package org.example.java.collection.set;
 
 import com.google.common.collect.Sets;
+import org.example.java.collection.entity.User;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +15,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 /**
  * Created by Zong on 2016/10/11.
@@ -21,15 +25,15 @@ public class SetTest {
     @Test
     public void diff() {
         Set allSet = new LinkedHashSet();
-        Map<String, Object> m1 = new LinkedHashMap<String, Object>();
+        Map<String, Object> m1 = new LinkedHashMap<>();
         m1.put("id", 1);
         m1.put("name", "zong");
         allSet.add(m1);
-        Map<String, Object> m2 = new LinkedHashMap<String, Object>();
+        Map<String, Object> m2 = new LinkedHashMap<>();
         m2.put("id", 2);
         m2.put("name", "wang");
         allSet.add(m2);
-        Map<String, Object> m3 = new LinkedHashMap<String, Object>();
+        Map<String, Object> m3 = new LinkedHashMap<>();
         m3.put("id", 3);
         m3.put("name", "liu");
         allSet.add(m3);
@@ -60,12 +64,11 @@ public class SetTest {
         Set diff = new HashSet(difference);
         Map<String, Object> m = new HashMap<String, Object>();
         m.put("diff", diff);
-//        Gson gson = new Gson();
-//        System.out.println(gson.toJson(m));
+        // Gson gson = new Gson();
+        // System.out.println(gson.toJson(m));
         System.out.println(m);
 
     }
-
 
     /**
      * set遍历的两种方法：foreach和iterator
@@ -88,7 +91,7 @@ public class SetTest {
 
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void iterSetWithNull() {
         Set<Integer> hashSet = new HashSet<>();
 
@@ -121,6 +124,8 @@ public class SetTest {
             final Integer i = it.next();
             System.out.print(i + " ");
         }
+        assertThrows(NullPointerException.class, () -> {
+        });
     }
 
     /**
@@ -156,23 +161,26 @@ public class SetTest {
      */
     @Test
     public void list2set() {
-        com.example.collection.set.User u1 = new com.example.collection.set.User("zong", 20);
-        com.example.collection.set.User u2 = new com.example.collection.set.User("zong", 20);
-        com.example.collection.set.User u3 = new com.example.collection.set.User("zong", 21);
-        com.example.collection.set.User u4 = new com.example.collection.set.User("ma", 20);
-        List<com.example.collection.set.User> list = new ArrayList<com.example.collection.set.User>();
+        User u1 = new User("zong", 20);
+        User u2 = new User("zong", 20);
+        User u3 = new User("zong", 21);
+        User u4 = new User("ma", 20);
+        List<User> list = new ArrayList<User>();
         list.add(u1);
         list.add(u2);
         list.add(u3);
         list.add(u4);
         System.out.println(list.size());
 
-        Set<com.example.collection.set.User> set = new HashSet<com.example.collection.set.User>();
+        Set<User> set = new HashSet<User>();
         set.addAll(list);
         System.out.println(set.size());
 
     }
 
+    /**
+     * 添加null到Set
+     */
     @Test
     public void setnull() {
         //TreeSet add null 运行报错

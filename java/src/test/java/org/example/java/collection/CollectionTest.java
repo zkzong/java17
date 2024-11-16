@@ -22,21 +22,21 @@ public class CollectionTest {
         m1.put("id", 1);
         m1.put("name", "zong");
         m1.put("age", 30);
-        System.out.println(m1.toString());
+        System.out.println(m1);
 
         // LinkedHashMap有序：插入顺序
         Map m2 = new LinkedHashMap();
         m2.put("id", 1);
         m2.put("name", "zong");
         m2.put("age", 30);
-        System.out.println(m2.toString());
+        System.out.println(m2);
 
         // TreeMap有序：key的自然顺序
         Map m3 = new TreeMap();
         m3.put("id", 1);
         m3.put("name", "zong");
         m3.put("age", 30);
-        System.out.println(m3.toString());
+        System.out.println(m3);
 
         List l1 = new ArrayList();
         List l2 = new LinkedList();

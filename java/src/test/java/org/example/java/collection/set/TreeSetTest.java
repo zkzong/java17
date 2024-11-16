@@ -1,6 +1,8 @@
 package org.example.java.collection.set;
 
-import java.util.Comparator;
+import org.example.java.collection.comparator.IntegerComparator;
+import org.junit.jupiter.api.Test;
+
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -10,7 +12,7 @@ import java.util.TreeSet;
 public class TreeSetTest {
     @Test
     public void sort() {
-        Set<Integer> set = new TreeSet<Integer>(new ComparatorImpl());
+        Set<Integer> set = new TreeSet<>(new IntegerComparator());
         set.add(3);
         set.add(5);
         set.add(4);
@@ -18,18 +20,4 @@ public class TreeSetTest {
 
         System.out.println(set);
     }
-}
-
-class ComparatorImpl implements Comparator<Integer> {
-
-    @Override
-    public int compare(Integer o1, Integer o2) {
-        if (o2 > o1) {
-            return 1;
-        } else if (o2 < o1) {
-            return -1;
-        }
-        return 0;
-    }
-
 }

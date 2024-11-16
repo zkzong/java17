@@ -1,8 +1,13 @@
-package org.example.java.collection.map;
+package org.example.java.collection.entity;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by Zong on 2016/7/16.
  */
+@Getter
+@Setter
 public class Country {
     String name;
     long population;
@@ -10,22 +15,6 @@ public class Country {
     public Country(String name, long population) {
         super();
         this.name = name;
-        this.population = population;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public long getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(long population) {
         this.population = population;
     }
 

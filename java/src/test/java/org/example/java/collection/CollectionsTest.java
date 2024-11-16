@@ -1,8 +1,13 @@
 package org.example.java.collection;
 
+import org.example.java.collection.comparator.StudentComparable;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -96,17 +101,32 @@ public class CollectionsTest {
     /**
      * 转换成不可修改集合
      */
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void unmodify() {
         List<Integer> list = new ArrayList<>();
         list.add(2);
         list.add(1);
         list.add(3);
 
-        List<Integer> integers = Collections.unmodifiableList(list);
-        integers.add(4);
-        System.out.println(integers);
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> {
+            List<Integer> integers = Collections.unmodifiableList(list);
+            integers.add(4);
+            System.out.println(integers);
+        });
 
+    }
+
+    @Test
+    public void sort() {
+        List list = new LinkedList();
+        list.add(new StudentComparable("ttt", 66));
+        list.add(new StudentComparable("bbb", 77));
+        list.add(new StudentComparable("ccc", 99));
+        list.add(new StudentComparable("fff", 88));
+        list.add(new StudentComparable("aaa", 66));
+        System.out.println(list);
+        Collections.sort(list);
+        System.out.println(list);
     }
 
 }
