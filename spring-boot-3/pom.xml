@@ -22,6 +22,7 @@
         <module>nacos</module>
         <module>apollo</module>
         <module>rabbitmq</module>
+        <module>xxljob</module>
     </modules>
 
     <properties>
