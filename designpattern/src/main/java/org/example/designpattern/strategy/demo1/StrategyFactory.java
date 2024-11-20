@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * @Author: zongz
@@ -15,12 +13,14 @@ import java.util.stream.Collectors;
  */
 @Component
 public class StrategyFactory {
-    private final Map<String, StrategyService> strategyMap;
+
+    // todo
+    private final Map<String, StrategyService> strategyMap = null;
 
     @Autowired
     public StrategyFactory(List<StrategyService> strategyServices) {
-        this.strategyMap = strategyServices.stream()
-                .collect(Collectors.toMap(Bean::getBeanName, Function.identity()));
+        // this.strategyMap = strategyServices.stream()
+        //         .collect(Collectors.toMap(Bean::getBeanName, Function.identity()));
     }
 
     public StrategyService getStrategy(String id) {

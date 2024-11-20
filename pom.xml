@@ -17,7 +17,9 @@
     </properties>
 
     <modules>
+        <module>java</module>
         <module>spring-boot-3</module>
+        <module>designpattern</module>
     </modules>
 
 </project>
