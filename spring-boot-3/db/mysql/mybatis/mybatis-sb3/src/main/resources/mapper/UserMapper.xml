@@ -47,7 +47,7 @@
 
     <select id="findByIndex" resultMap="resultMap">
         select id, user_name, age, create_time, update_time from t_user
-        where user_name = #{arg0} and age = #{arg1}
+        where user_name = #{param1} and age = #{param2}
     </select>
 
     <select id="findByMap" resultMap="resultMap">

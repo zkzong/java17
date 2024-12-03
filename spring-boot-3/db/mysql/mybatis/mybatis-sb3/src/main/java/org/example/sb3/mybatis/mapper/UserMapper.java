@@ -22,7 +22,6 @@ public interface UserMapper {
 
     int insertAndGetId(User user);
 
-    // todo 索引报错
     User findByIndex(String userName, int age);
 
     User findByMap(Map map);
