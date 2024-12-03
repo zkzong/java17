@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.example.sb3.mybatis.mapper.UserMapper">
 
@@ -26,7 +26,8 @@
     </insert>
 
     <insert id="insertOneWithDate">
-        insert into t_user(user_name, age, create_time, update_time) values(#{userName}, #{age}, #{createTime}, #{updateTime})
+        insert into t_user(user_name, age, create_time, update_time) values(#{userName}, #{age}, #{createTime},
+        #{updateTime})
     </insert>
 
     <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id">
@@ -36,7 +37,8 @@
         </foreach>
     </insert>
 
-    <insert id="insertAndGetId" parameterType="org.example.sb3.mybatis.domain.User" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertAndGetId" parameterType="org.example.sb3.mybatis.domain.User" useGeneratedKeys="true"
+            keyProperty="id">
         <!--<selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">-->
         <!--    SELECT LAST_INSERT_ID()-->
         <!--</selectKey>-->
@@ -44,17 +46,17 @@
     </insert>
 
     <select id="findByIndex" resultMap="resultMap">
-        select id, user_name userName, age, create_time, update_time from t_user
+        select id, user_name, age, create_time, update_time from t_user
         where user_name = #{arg0} and age = #{arg1}
     </select>
 
     <select id="findByMap" resultMap="resultMap">
-        select id, user_name userName, age, create_time, update_time from t_user
+        select id, user_name, age, create_time, update_time from t_user
         where user_name = #{userName} and age = #{age}
     </select>
 
     <select id="findByParam" resultMap="resultMap">
-        select id, user_name userName, age, create_time, update_time from t_user
+        select id, user_name, age, create_time, update_time from t_user
         where user_name = #{userName} and age = #{age}
     </select>
 
@@ -62,14 +64,14 @@
         select id, user_name, age, create_time, update_time from t_user
         <where>
             <if test="names != null and names.size > 0">
-                 and user_name in
+                and user_name in
                 <foreach collection="names" item="name" open="(" separator="," close=")">
                     #{name}
                 </foreach>
             </if>
-        <if test="name != null and name != ''">
-            and user_name != #{name}
-        </if>
+            <if test="name != null and name != ''">
+                and user_name != #{name}
+            </if>
         </where>
     </select>
 </mapper>
