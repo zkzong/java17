@@ -64,4 +64,9 @@ public class UserServiceImpl implements UserService {
         return userMapper.namein(names, name);
     }
 
+    @Override
+    public int updateBatch(List<User> userList) {
+        return userMapper.updateBatch(userList);
+    }
+
 }

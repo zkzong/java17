@@ -30,4 +30,6 @@ public interface UserMapper {
 
     List<User> namein(@Param("names") List<String> names, @Param("name") String name);
 
+    int updateBatch(List<User> userList);
+
 }

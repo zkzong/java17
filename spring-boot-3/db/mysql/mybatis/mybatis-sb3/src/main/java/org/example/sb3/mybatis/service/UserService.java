@@ -28,4 +28,6 @@ public interface UserService {
 
     List<User> namein(List<String> names, String name);
 
+    int updateBatch(List<User> userList);
+
 }

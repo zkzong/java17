@@ -74,4 +74,38 @@
             </if>
         </where>
     </select>
+
+    <!--要实现批量更新，首先得设置mysql支持批量操作，在jdbc链接中需要附加&allowMultiQueries=true属性才行-->
+    <!--<update id="updateBatch">-->
+    <!--    <foreach collection="userList" item="user" index="index" open="" close="" separator=";">-->
+    <!--        update t_user-->
+    <!--        <set>-->
+    <!--            user_name = #{user.userName},-->
+    <!--            age = #{user.age}-->
+    <!--        </set>-->
+    <!--        <where>-->
+    <!--            and id = #{user.id}-->
+    <!--        </where>-->
+    <!--    </foreach>-->
+    <!--</update>-->
+
+    <update id="updateBatch" parameterType="java.util.List">
+        update t_user
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="user_name = case" suffix="end,">
+                <foreach collection="userList" item="user" index="index">
+                    when id=#{user.id} then #{user.userName}
+                </foreach>
+            </trim>
+            <trim prefix="age = case" suffix="end,">
+                <foreach collection="userList" item="user" index="index">
+                    when id=#{user.id} then #{user.age}
+                </foreach>
+            </trim>
+        </trim>
+        where id in
+        <foreach collection="userList" index="index" item="user" separator="," open="(" close=")">
+            #{user.id,jdbcType=BIGINT}
+        </foreach>
+    </update>
 </mapper>

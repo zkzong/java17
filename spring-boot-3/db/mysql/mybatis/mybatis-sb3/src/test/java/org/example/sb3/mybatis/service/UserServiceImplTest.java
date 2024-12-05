@@ -102,4 +102,22 @@ public class UserServiceImplTest {
         List<User> result = userService.namein(names, "John");
         System.out.println(result);
     }
+
+    @Test
+    public void testUpdateBatch() {
+        List<User> userList = new ArrayList<>();
+        User user1 = new User();
+        user1.setId(1L);
+        user1.setUserName("John");
+        user1.setAge(25);
+        userList.add(user1);
+        User user2 = new User();
+        user2.setId(2L);
+        user2.setUserName("Jane");
+        user2.setAge(30);
+        userList.add(user2);
+
+        int result = userService.updateBatch(userList);
+        System.out.println(result);
+    }
 }
