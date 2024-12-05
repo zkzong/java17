@@ -9,28 +9,29 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 
+ *
  * @TableName t_user
  */
-@TableName(value ="t_user")
+@TableName(value = "t_user")
 @Data
 public class User implements Serializable {
-    /**
-     * 
-     */
-    @TableId(type = IdType.AUTO)
-    private Integer id;
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     /**
-     * 
+     *
+     */
+    @TableId(type = IdType.AUTO)
+    private Long id;
+
+    /**
+     *
      */
     private String userName;
 
     /**
-     * 
+     *
      */
     private Integer age;
 
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 }
