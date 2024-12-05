@@ -1,7 +1,6 @@
 package org.example.rabbitmq.controller;
 
-
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
 import org.example.rabbitmq.entity.User;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
@@ -15,13 +14,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-
 @RestController
 public class TestController {
 
     @Autowired
     RabbitTemplate rabbitTemplate;
-
 
     @GetMapping("/test")
     public String test() {
