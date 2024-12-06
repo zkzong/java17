@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(value = "nacos-provider")
-public interface TestApi {
+public interface ProviderClient {
 
-    @PostMapping("/test/post")
+    @PostMapping("/provider/post")
     String post(@RequestParam String name);
 
 }

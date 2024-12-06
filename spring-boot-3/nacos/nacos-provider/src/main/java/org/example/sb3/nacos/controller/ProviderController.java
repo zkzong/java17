@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping("/provider")
+public class ProviderController {
 
     @PostMapping("/post")
     public String post(@RequestParam String name) {
