@@ -23,6 +23,7 @@
         <module>apollo</module>
         <module>rabbitmq</module>
         <module>xxljob</module>
+        <module>mq</module>
     </modules>
 
     <properties>
