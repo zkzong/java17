@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>kafka-spring-boot-2</artifactId>
+    <artifactId>kafka-spring-boot</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

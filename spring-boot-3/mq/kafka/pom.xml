@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>kafka-spring-boot-2</module>
+        <module>kafka-spring-boot</module>
         <module>kafka-spring-boot-imooc</module>
     </modules>
 
