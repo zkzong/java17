@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 public class AutoProducer {
 
-    private static final String TOPIC = "users";
+    private static final String TOPIC = "auto-topic";
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;

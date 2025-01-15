@@ -12,7 +12,7 @@ public class AutoConsumer {
     /**
      * 使用 message 接受消息
      */
-    @KafkaListener(topics = "users", groupId = "group_id_1")
+    @KafkaListener(topics = "auto-topic", groupId = "group_id_1")
     public void consume1(String message) {
         log.info(String.format("$$ -> Consumed Message -> %s", message));
     }
@@ -20,7 +20,7 @@ public class AutoConsumer {
     /**
      * 使用 record 接受消息
      */
-    @KafkaListener(topics = "users", groupId = "group_id_2")
+    @KafkaListener(topics = "auto-topic", groupId = "group_id_2")
     public void consume2(ConsumerRecord record) {
         log.info(String.format("$$ -> Consumed Message -> %s", record));
     }
