@@ -14,7 +14,7 @@ public class AutoConsumer {
      */
     @KafkaListener(topics = "auto-topic", groupId = "group_id_1")
     public void consume1(String message) {
-        log.info(String.format("$$ -> Consumed Message -> %s", message));
+        log.info(String.format("group_id_1 -> $$ -> Consumed Message -> %s", message));
     }
 
     /**
@@ -22,7 +22,7 @@ public class AutoConsumer {
      */
     @KafkaListener(topics = "auto-topic", groupId = "group_id_2")
     public void consume2(ConsumerRecord record) {
-        log.info(String.format("$$ -> Consumed Message -> %s", record));
+        log.info(String.format("group_id_2 -> $$ -> Consumed Message -> %s", record));
     }
 
 }

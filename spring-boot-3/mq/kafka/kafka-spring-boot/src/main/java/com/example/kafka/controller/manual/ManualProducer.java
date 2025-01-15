@@ -29,6 +29,6 @@ public class ManualProducer {
             }
         });
         // 指定分区
-        kafkaTemplate.send(TOPIC, "1", message);
+        //kafkaTemplate.send(TOPIC, "1", message);
     }
 }
