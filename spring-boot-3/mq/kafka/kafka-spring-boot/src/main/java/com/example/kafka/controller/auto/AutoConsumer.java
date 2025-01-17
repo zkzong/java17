@@ -21,7 +21,7 @@ public class AutoConsumer {
      * 使用 record 接受消息
      */
     @KafkaListener(topics = "auto-topic", groupId = "group_id_2")
-    public void consume2(ConsumerRecord record) {
+    public void consume2(ConsumerRecord<String, String> record) {
         log.info(String.format("group_id_2 -> $$ -> Consumed Message -> %s", record));
     }
 
