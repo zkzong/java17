@@ -1,18 +1,18 @@
 package com.example.es.service;
 
 import com.example.es.entity.Commodity;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.data.elasticsearch.core.query.IndexQuery;
 import org.springframework.data.elasticsearch.core.query.IndexQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.SearchQuery;
+import org.springframework.data.elasticsearch.core.query.Query;
+import org.springframework.data.elasticsearch.core.query.StringQueryBuilder;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import java.util.List;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -31,16 +31,15 @@ public class ElasticsearchTemplateTest {
         commodity.setBrand("良品铺子");
 
         IndexQuery indexQuery = new IndexQueryBuilder().withObject(commodity).build();
-        elasticsearchTemplate.index(indexQuery);
+        IndexCoordinates indexCoordinates = IndexCoordinates.of("name");
+        elasticsearchTemplate.index(indexQuery, indexCoordinates);
     }
 
     @Test
     public void testQuery() {
-        SearchQuery searchQuery = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.matchQuery("name", "吐司"))
-                .build();
-        List<Commodity> list = elasticsearchTemplate.queryForList(searchQuery, Commodity.class);
-        System.out.println(list);
+        Query query = new StringQueryBuilder("name").withFields("面包").build();
+        SearchHits<Commodity> searchHits = elasticsearchTemplate.search(query, Commodity.class);
+        System.out.println(searchHits);
     }
 
 }

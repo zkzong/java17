@@ -15,7 +15,7 @@ public interface CommodityService {
 
     Iterable<Commodity> getAll();
 
-    List<Commodity> getByName(String name);
+    List<Commodity> findByName(String name);
 
     Page<Commodity> pageQuery(Integer pageNo, Integer pageSize, String kw);
 

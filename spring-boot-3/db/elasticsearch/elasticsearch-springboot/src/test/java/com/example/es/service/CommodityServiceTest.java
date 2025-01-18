@@ -1,7 +1,8 @@
 package com.example.es.service;
 
 import com.example.es.entity.Commodity;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
@@ -63,8 +64,8 @@ public class CommodityServiceTest {
     }
 
     @Test
-    public void getByName() {
-        List<Commodity> list = commodityService.getByName("面包");
+    public void findByName() {
+        List<Commodity> list = commodityService.findByName("面包");
         System.out.println(list);
     }
 
