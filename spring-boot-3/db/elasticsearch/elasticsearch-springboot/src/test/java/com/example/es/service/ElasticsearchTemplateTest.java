@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.data.elasticsearch.core.query.Query;
-import org.springframework.data.elasticsearch.core.query.StringQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.StringQuery;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
@@ -29,15 +30,17 @@ public class ElasticsearchTemplateTest {
         elasticsearchTemplate.save(commodity);
 
         //IndexQuery indexQuery = new IndexQueryBuilder().withObject(commodity).build();
-        //IndexCoordinates indexCoordinates = IndexCoordinates.of("name");
 
     }
 
     @Test
     public void testQuery() {
-        Query query = new StringQueryBuilder("name").withFields("面包").build();
+        String name = "面包";
+        Query query = new StringQuery(
+                "{ \"match\": { \"name\": { \"query\": \"" + name + " \" } } } ");
+        IndexCoordinates indexCoordinates = IndexCoordinates.of("name");
         SearchHits<Commodity> searchHits = elasticsearchTemplate.search(query, Commodity.class);
-        System.out.println(searchHits);
+        searchHits.stream().forEach(System.out::println);
     }
 
 }

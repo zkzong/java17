@@ -50,7 +50,6 @@ public class ElasticsearchOperationsTest {
     @Test
     public void stringQuery() {
         String name = "面包";
-        //Query query = new StringQueryBuilder("name").withFields("面包").build();
         Query query = new StringQuery(
                 "{ \"match\": { \"name\": { \"query\": \"" + name + " \" } } } ");
         SearchHits<Commodity> searchHits = elasticsearchOperations.search(query, Commodity.class);
