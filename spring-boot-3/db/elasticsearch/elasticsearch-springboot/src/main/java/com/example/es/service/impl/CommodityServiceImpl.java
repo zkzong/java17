@@ -47,10 +47,16 @@ public class CommodityServiceImpl implements CommodityService {
     @Override
     public Page<Commodity> pageQuery(Integer pageNo, Integer pageSize, String kw) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
-        Commodity commodity = new Commodity();
-        commodity.setName(kw);
         // searchSimilar默认只能使用ID进行匹配查询
-        return commodityRepository.searchSimilar(commodity, new String[]{"name"}, pageable);
+        Page<Commodity> page = commodityRepository.findById(kw)
+                .map(commodity -> commodityRepository.searchSimilar(commodity, new String[]{"skuId"}, pageable))
+                .orElse(Page.empty());
+        return page;
+    }
+
+    @Override
+    public Page<Commodity> pageByName(Integer pageNo, Integer pageSize, String name) {
+        return commodityRepository.pageByName(name, PageRequest.of(pageNo, pageSize));
     }
 
 

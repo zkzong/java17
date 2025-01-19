@@ -19,4 +19,6 @@ public interface CommodityService {
 
     Page<Commodity> pageQuery(Integer pageNo, Integer pageSize, String kw);
 
+    Page<Commodity> pageByName(Integer pageNo, Integer pageSize, String name);
+
 }

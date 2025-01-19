@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.SearchHits;
-import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
-import org.springframework.data.elasticsearch.core.query.IndexQuery;
-import org.springframework.data.elasticsearch.core.query.IndexQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.data.elasticsearch.core.query.StringQueryBuilder;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -29,10 +26,11 @@ public class ElasticsearchTemplateTest {
         commodity.setCategory("101");
         commodity.setPrice(160);
         commodity.setBrand("良品铺子");
+        elasticsearchTemplate.save(commodity);
 
-        IndexQuery indexQuery = new IndexQueryBuilder().withObject(commodity).build();
-        IndexCoordinates indexCoordinates = IndexCoordinates.of("name");
-        elasticsearchTemplate.index(indexQuery, indexCoordinates);
+        //IndexQuery indexQuery = new IndexQueryBuilder().withObject(commodity).build();
+        //IndexCoordinates indexCoordinates = IndexCoordinates.of("name");
+
     }
 
     @Test

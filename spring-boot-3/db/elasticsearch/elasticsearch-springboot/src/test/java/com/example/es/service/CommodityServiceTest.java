@@ -71,7 +71,16 @@ public class CommodityServiceTest {
 
     @Test
     public void pageQuery() {
-        Page<Commodity> page = commodityService.pageQuery(0, 10, "切片");
+        // todo 未查询出数据
+        Page<Commodity> page = commodityService.pageQuery(0, 10, "1501009001");
+        System.out.println(page.getTotalPages());
+        System.out.println(page.getNumber());
+        System.out.println(page.getContent());
+    }
+
+    @Test
+    public void pageByName() {
+        Page<Commodity> page = commodityService.pageByName(1, 1, "面包");
         System.out.println(page.getTotalPages());
         System.out.println(page.getNumber());
         System.out.println(page.getContent());
