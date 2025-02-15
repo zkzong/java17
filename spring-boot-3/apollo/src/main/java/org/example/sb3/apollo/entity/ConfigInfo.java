@@ -1,4 +1,4 @@
-package org.example.sb3.apollo.config;
+package org.example.sb3.apollo.entity;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 @Component
 @RefreshScope
 @Data
-public class PropConfig {
+public class ConfigInfo {
 
-    private String info;
+    private String username;
 
 }

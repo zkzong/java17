@@ -54,3 +54,7 @@ https://www.bilibili.com/video/BV1Sw4m117aj/?spm_id_from=333.880.my_history.page
 ### apollo
 
 @EnableApolloConfig可以不用加
+
+@ApolloJsonValue
+
+@ApolloConfigChangeListener监听配置变化

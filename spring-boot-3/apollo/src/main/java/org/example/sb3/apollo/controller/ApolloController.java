@@ -2,7 +2,9 @@ package org.example.sb3.apollo.controller;
 
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.ConfigService;
+import com.ctrip.framework.apollo.spring.annotation.ApolloJsonValue;
 import lombok.extern.slf4j.Slf4j;
+import org.example.sb3.apollo.entity.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,7 @@ import java.util.Date;
 @Slf4j
 public class ApolloController {
 
-    @Value("${apollo.config.name}")
+    @Value("${config.username}")
     private String name;
 
     @Value("${config.startDate:2022-12-01}")
@@ -26,9 +28,13 @@ public class ApolloController {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date configEndDate;
 
+    @ApolloJsonValue("${config.user:{'name':'张三','age':23,'sex':'男'}}")
+    private User user;
+
     @GetMapping("/config")
     public String config() {
         log.info("name = {}", name);
+        log.info("user = {}", user);
         return name;
     }
 
