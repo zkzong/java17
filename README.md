@@ -50,3 +50,7 @@ https://www.bilibili.com/video/BV1Sw4m117aj/?spm_id_from=333.880.my_history.page
 ### xxljob
 
 动态修改xxljob任务
+
+### apollo
+
+@EnableApolloConfig可以不用加
