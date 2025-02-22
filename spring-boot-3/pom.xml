@@ -21,7 +21,6 @@
         <module>db</module>
         <module>nacos</module>
         <module>apollo</module>
-        <module>rabbitmq</module>
         <module>xxljob</module>
         <module>mq</module>
     </modules>

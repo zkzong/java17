@@ -12,6 +12,7 @@
     <artifactId>mq</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>rabbitmq</module>
         <module>kafka</module>
     </modules>
 
