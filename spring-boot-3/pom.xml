@@ -23,6 +23,7 @@
         <module>apollo</module>
         <module>xxljob</module>
         <module>mq</module>
+        <module>bpm</module>
     </modules>
 
     <properties>
