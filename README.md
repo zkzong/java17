@@ -4,6 +4,10 @@
 
 集合
 
+CPU飙升100%
+- DeadlockDemo
+- JVMCPU
+
 ## designpattern
 
 
@@ -29,6 +33,8 @@
 #### mysql
 
 ##### mybatis
+
+多线程读取数据库记录
 
 ###### mybatis-plus
 
