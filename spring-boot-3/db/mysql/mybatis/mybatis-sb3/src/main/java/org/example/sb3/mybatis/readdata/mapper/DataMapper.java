@@ -22,14 +22,14 @@ public interface DataMapper {
     int totalCount();
 
     // 游标分页查询（基于有序ID）
-    @Select("SELECT * FROM User WHERE id > #{lastId} ORDER BY id ASC LIMIT #{limit}")
+    @Select("SELECT * FROM t_user WHERE id > #{lastId} ORDER BY id ASC LIMIT #{limit}")
     List<User> selectByCursor(@Param("lastId") long lastId, @Param("limit") int limit);
 
     // 获取最小ID（起始点）
-    @Select("SELECT MIN(id) FROM User")
+    @Select("SELECT MIN(id) FROM t_user")
     long selectMinId();
 
     // 获取最大ID（终点）
-    @Select("SELECT MAX(id) FROM User")
+    @Select("SELECT MAX(id) FROM t_user")
     long selectMaxId();
 }

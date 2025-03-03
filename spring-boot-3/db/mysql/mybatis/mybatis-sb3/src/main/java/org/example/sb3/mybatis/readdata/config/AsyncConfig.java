@@ -6,6 +6,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @Author: zongz
@@ -24,6 +25,7 @@ public class AsyncConfig {
         executor.setMaxPoolSize(8);
         // 队列容量
         executor.setQueueCapacity(100);
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         executor.setThreadNamePrefix("AsyncDBReader-");
         executor.initialize();
         return executor;
