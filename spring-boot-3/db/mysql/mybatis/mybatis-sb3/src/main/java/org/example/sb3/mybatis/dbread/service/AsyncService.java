@@ -1,8 +1,8 @@
-package org.example.sb3.mybatis.readdata.service;
+package org.example.sb3.mybatis.dbread.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.sb3.mybatis.domain.User;
-import org.example.sb3.mybatis.readdata.mapper.DataMapper;
+import org.example.sb3.mybatis.dbread.mapper.DataMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;

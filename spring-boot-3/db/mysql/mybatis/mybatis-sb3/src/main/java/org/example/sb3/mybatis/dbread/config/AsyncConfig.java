@@ -1,4 +1,4 @@
-package org.example.sb3.mybatis.readdata.config;
+package org.example.sb3.mybatis.dbread.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

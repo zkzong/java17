@@ -1,4 +1,4 @@
-package org.example.sb3.mybatis.readdata.mapper;
+package org.example.sb3.mybatis.dbread.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

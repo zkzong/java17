@@ -1,6 +1,6 @@
-package org.example.sb3.mybatis.readdata.controller;
+package org.example.sb3.mybatis.dbread.controller;
 
-import org.example.sb3.mybatis.readdata.service.DataService;
+import org.example.sb3.mybatis.dbread.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.RequestMapping;
