@@ -5,9 +5,9 @@
 <mapper namespace="org.example.sb3.mybatisplus.mapper.UserMapper">
 
     <resultMap id="BaseResultMap" type="org.example.sb3.mybatisplus.domain.User">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
-            <result property="age" column="age" jdbcType="INTEGER"/>
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="age" column="age" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">

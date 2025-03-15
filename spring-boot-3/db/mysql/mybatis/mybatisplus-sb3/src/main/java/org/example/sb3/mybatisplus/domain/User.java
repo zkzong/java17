@@ -9,7 +9,6 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- *
  * @TableName t_user
  */
 @TableName(value = "t_user")

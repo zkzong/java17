@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.example.sb3.mybatis.mapper.UserMapper">
 
@@ -14,20 +14,25 @@
     </resultMap>
 
     <select id="getAllUsers" resultMap="resultMap">
-        select id, user_name, age, create_time, update_time from t_user
+        select id, user_name, age, create_time, update_time
+        from t_user
     </select>
 
     <select id="findByUserName" resultMap="resultMap">
-        select id, user_name, age, create_time, update_time from t_user where user_name = #{name}
+        select id, user_name, age, create_time, update_time
+        from t_user
+        where user_name = #{name}
     </select>
 
     <insert id="insertOne">
-        insert into t_user(user_name, age) values(#{userName}, #{age})
+        insert into t_user(user_name, age)
+        values (#{userName}, #{age})
     </insert>
 
     <insert id="insertOneWithDate">
-        insert into t_user(user_name, age, create_time, update_time) values(#{userName}, #{age}, #{createTime},
-        #{updateTime})
+        insert into t_user(user_name, age, create_time, update_time)
+        values (#{userName}, #{age}, #{createTime},
+                #{updateTime})
     </insert>
 
     <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id">
@@ -46,18 +51,24 @@
     </insert>
 
     <select id="findByIndex" resultMap="resultMap">
-        select id, user_name, age, create_time, update_time from t_user
-        where user_name = #{param1} and age = #{param2}
+        select id, user_name, age, create_time, update_time
+        from t_user
+        where user_name = #{param1}
+          and age = #{param2}
     </select>
 
     <select id="findByMap" resultMap="resultMap">
-        select id, user_name, age, create_time, update_time from t_user
-        where user_name = #{userName} and age = #{age}
+        select id, user_name, age, create_time, update_time
+        from t_user
+        where user_name = #{userName}
+          and age = #{age}
     </select>
 
     <select id="findByParam" resultMap="resultMap">
-        select id, user_name, age, create_time, update_time from t_user
-        where user_name = #{userName} and age = #{age}
+        select id, user_name, age, create_time, update_time
+        from t_user
+        where user_name = #{userName}
+          and age = #{age}
     </select>
 
     <select id="namein" resultMap="resultMap">
