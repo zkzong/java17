@@ -49,6 +49,15 @@ spring boot 3依赖mybatis-plus包：
 
 使用saveOrUpdate保存或更新mysql数据，可以根据主键id更新，也可以根据指定字段更新。
 
+多数据源：
+```xml
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
+    <version>4.3.0</version>
+</dependency>
+```
+
 ### rabbit
 
 https://www.bilibili.com/video/BV1Sw4m117aj/?spm_id_from=333.880.my_history.page.click&vd_source=43e61552391289e9e1e841467f81b0c5
