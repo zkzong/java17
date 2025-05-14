@@ -1,5 +1,8 @@
 package org.example.flowable;
 
+import org.flowable.engine.ProcessEngine;
+import org.flowable.engine.ProcessEngineConfiguration;
+import org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -15,7 +18,9 @@ public class FlowableTest {
      */
     @Test
     public void deployFlow() {
-
+        ProcessEngineConfiguration cfg = new StandaloneProcessEngineConfiguration();
+        // 获取流程引擎对象
+        ProcessEngine processEngine = cfg.buildProcessEngine();
     }
 
 }
