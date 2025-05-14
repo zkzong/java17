@@ -1,4 +1,4 @@
-package org.example.sb3.controller;
+package org.example.webflux;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
