@@ -25,6 +25,7 @@
         <module>mq</module>
         <module>bpm</module>
         <module>webflux</module>
+        <module>i18n</module>
     </modules>
 
     <properties>
