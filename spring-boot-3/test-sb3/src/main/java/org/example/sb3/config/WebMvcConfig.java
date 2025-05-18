@@ -17,7 +17,7 @@ import java.util.List;
  * @Date: 2024/10/27
  */
 @Configuration
-public class WebMvcConfg implements WebMvcConfigurer {
+public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         // 1. 配置fastjson
