@@ -26,6 +26,7 @@
         <module>bpm</module>
         <module>webflux</module>
         <module>i18n</module>
+        <module>upload</module>
     </modules>
 
     <properties>
