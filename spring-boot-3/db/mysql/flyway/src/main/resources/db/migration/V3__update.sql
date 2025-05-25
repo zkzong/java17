@@ -1,0 +1,1 @@
+update t_user set age = 50 where user_name = '张三';
