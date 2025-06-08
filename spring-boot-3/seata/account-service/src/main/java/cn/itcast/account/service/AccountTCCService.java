@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface AccountTCCService extends BaseMapper<Account> {
 
-    int de
+    //int de
 }
