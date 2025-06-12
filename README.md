@@ -28,6 +28,10 @@ CPU飙升100%
 </dependency>
 ```
 
+**ValidateController**
+
+BindingResult：使用BindingResult类的getAllErrors()方法可以获取不符合校验的提示集合
+
 ### db
 
 #### mysql

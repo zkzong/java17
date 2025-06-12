@@ -1,6 +1,6 @@
 package org.example.sb3.controller;
 
-import org.example.sb3.pojo.User;
+import org.example.sb3.pojo.UserVo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebController {
 
     @RequestMapping("/user")
-    public ResponseEntity<User> user() {
-        User user = User.builder().id(1L).userName("Java").build();
+    public ResponseEntity<UserVo> user() {
+        UserVo user = UserVo.builder().id(1L).userName("Java").build();
         return ResponseEntity.ok(user);
     }
 
