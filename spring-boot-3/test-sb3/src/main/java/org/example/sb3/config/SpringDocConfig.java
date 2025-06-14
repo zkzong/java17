@@ -23,7 +23,7 @@ public class SpringDocConfig {
         return new Info()
                 .title("API文档")
                 .description("Spring Boot 3 应用接口文档")
-                .version("1.0");
+                .version("v1.0");
     }
 
 }
