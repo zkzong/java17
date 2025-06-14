@@ -38,7 +38,6 @@ public class SpringDocController {
         return new User(id, "dalaoyang", "123");
     }
 
-
     @Operation(summary = "保存用户", description = "保存用户")
     @PostMapping(value = "/saveUser")
     public String saveUser(@RequestBody @Parameter(name = "用户对象", description = "传入json格式", required = true) User user) {
@@ -57,7 +56,6 @@ public class SpringDocController {
         User user = new User(id, username, password);
         return user.toString();
     }
-
 
     @Operation(summary = "删除用户", description = "根据用户的id来删除用户")
     @Parameter(name = "id", description = "用户ID", required = true)
