@@ -1,9 +1,9 @@
 spring:
   datasource:
-    #数据源驱动
+    # 数据源驱动
     driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
-    #数据源url(后面的sharding-sphere.yml要跟你自己创建的文件名对应上)
-    url: jdbc:shardingsphere:classpath:sharding.yml
+    # 数据源url(后面的sharding-sphere.yml要跟你自己创建的文件名对应上)
+    url: jdbc:shardingsphere:classpath:sharding-mod.yml
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
