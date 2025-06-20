@@ -1,4 +1,4 @@
-package org.example.sb3.ss.mapper;
+package org.example.sb3.ss.repository;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.example.sb3.ss.entity.OrderItem;
@@ -6,18 +6,17 @@ import org.example.sb3.ss.entity.OrderItem;
 import java.util.List;
 
 @Mapper
-public interface OrderItemMapper {
+public interface OrderItemRepository {
+
     void createTableIfNotExists();
 
     void truncateTable();
 
     void dropTable();
 
-    int insert(OrderItem orderItem);
+    void insert(OrderItem orderItem);
 
-    void delete(Long orderId);
+    void delete(long orderId);
 
     List<OrderItem> selectAll();
-
-    List<OrderItem> selectRange();
 }
