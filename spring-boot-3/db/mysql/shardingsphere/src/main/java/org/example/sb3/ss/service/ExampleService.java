@@ -63,6 +63,7 @@ public final class ExampleService {
         List<Long> result = new ArrayList<>(10);
         for (int i = 1; i <= 10; i++) {
             Order order = new Order();
+            order.setOrderId(i);
             order.setUserId(i);
             order.setOrderType(i % 2);
             order.setAddressId(i);
