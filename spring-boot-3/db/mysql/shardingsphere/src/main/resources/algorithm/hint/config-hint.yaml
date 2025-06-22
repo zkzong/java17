@@ -30,47 +30,46 @@ dataSources:
 
 rules:
 - !SHARDING
-    autoTables:
+    tables:
       t_order:
-        actualDataSources: ds_$->{0..1}
-        shardingStrategy:
+        actualDataNodes: ds_$->{0..1}.t_order_${value}
+        tableStrategy:
           standard:
             shardingColumn: order_id
-            shardingAlgorithmName: t_order_mod
-        keyGenerateStrategy:
-          column: order_id
-          keyGeneratorName: snowflake_generator
+            shardingAlgorithmName: t_order_inline
+#        keyGenerateStrategy:
+#          column: order_id
+#          keyGeneratorName: snowflake_generator
       t_order_item:
-        actualDataSources: ds_$->{0..1}
-        shardingStrategy:
+        actualDataNodes: ds_$->{0..1}.t_order_item_${value}
+        tableStrategy:
           standard:
             shardingColumn: order_id
-            shardingAlgorithmName: t_order_item_mod
-        keyGenerateStrategy:
-          column: order_item_id
-          keyGeneratorName: snowflake_generator
+            shardingAlgorithmName: t_order_item_inline
+#        keyGenerateStrategy:
+#          column: order_item_id
+#          keyGeneratorName: snowflake_generator
     bindingTables:
       - t_order,t_order_item
-#    defaultDatabaseStrategy:
-#      shardingStrategy:
-#        standard:
-#          shardingColumn: user_id
-#          shardingAlgorithmName: database_mod
+    defaultDatabaseStrategy:
+      standard:
+        shardingColumn: user_id
+        shardingAlgorithmName: database_inline
 
     shardingAlgorithms:
-#      database_mod:
-#        type: MOD
-#        props:
-#          sharding-count: 2
+      database_inline:
+        type: INLINE
+        props:
+          algorithm-expression: ds_${user_id % 2}
           
-      t_order_mod:
-        type: MOD
+      t_order_inline:
+        type: HINT_INLINE
         props:
-          sharding-count: 2
-      t_order_item_mod:
-        type: MOD
+          algorithm-expression: t_order_${value}
+      t_order_item_inline:
+        type: HINT_INLINE
         props:
-          sharding-count: 2
+          algorithm-expression: t_order_item_${value}
     keyGenerators:
       snowflake_generator:
         type: SNOWFLAKE

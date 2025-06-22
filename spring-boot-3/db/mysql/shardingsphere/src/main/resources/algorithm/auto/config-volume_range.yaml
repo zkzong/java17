@@ -58,12 +58,12 @@ rules:
 #          shardingAlgorithmName: database_volume_range
 
     shardingAlgorithms:
-      database_volume_range:
-        type: VOLUME_RANGE
-        props:
-          range-lower: '1'
-          range-upper: '10'
-          sharding-volume: '2'
+#      database_volume_range:
+#        type: VOLUME_RANGE
+#        props:
+#          range-lower: '1'
+#          range-upper: '10'
+#          sharding-volume: '2'
           
       t_order_volume_range:
         type: VOLUME_RANGE
