@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.sb3.ss.repository.OrderExtRepository">
+    <resultMap id="baseResultMap" type="org.example.sb3.ss.entity.Order">
+        <result column="order_id" property="orderId" jdbcType="BIGINT"/>
+        <result column="order_type" property="orderType" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="address_id" property="addressId" jdbcType="BIGINT"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectRange" resultMap="baseResultMap">
+        SELECT * FROM t_order WHERE order_id BETWEEN 1 AND 5
+    </select>
+
+    <select id="selectgt" resultMap="baseResultMap">
+        SELECT * FROM t_order WHERE order_id > 5
+    </select>
+
+    <select id="selectlt" resultMap="baseResultMap">
+        SELECT * FROM t_order WHERE order_id &lt; 5
+    </select>
+
+    <select id="selectByAddress" resultMap="baseResultMap">
+        SELECT * FROM t_order WHERE address_id = 5
+    </select>
+
+</mapper>

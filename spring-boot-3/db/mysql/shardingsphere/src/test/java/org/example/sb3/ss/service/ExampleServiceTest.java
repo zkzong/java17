@@ -1,6 +1,5 @@
-package org.example.sb3.ss;
+package org.example.sb3.ss.service;
 
-import org.example.sb3.ss.service.ExampleService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
