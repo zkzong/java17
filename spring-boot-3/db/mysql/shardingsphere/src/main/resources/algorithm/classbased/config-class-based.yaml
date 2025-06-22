@@ -33,46 +33,39 @@ rules:
     tables:
       t_order:
         actualDataNodes: ds_$->{0..1}.t_order_$->{0..1}
-        tableStrategy:
+        databaseStrategy:
           standard:
             shardingColumn: order_id
-            shardingAlgorithmName: t_order_inline
-        keyGenerateStrategy:
-          column: order_id
-          keyGeneratorName: snowflake_generator
+            shardingAlgorithmName: custom-db-sharding
+        tableStrategy:
+          standard:
+              shardingColumn: order_id
+              shardingAlgorithmName: custom-table-sharding
+#        keyGenerateStrategy:
+#          column: order_id
+#          keyGeneratorName: snowflake_generator
       t_order_item:
         actualDataNodes: ds_$->{0..1}.t_order_item_$->{0..1}
+        databaseStrategy:
+          standard:
+              shardingColumn: order_id
+              shardingAlgorithmName: custom-db-sharding
         tableStrategy:
           standard:
             shardingColumn: order_id
-            shardingAlgorithmName: t_order_item_inline
-        keyGenerateStrategy:
-          column: order_item_id
-          keyGeneratorName: snowflake_generator
+            shardingAlgorithmName: custom-table-sharding
+#        keyGenerateStrategy:
+#          column: order_item_id
+#          keyGeneratorName: snowflake_generator
     bindingTables:
       - t_order,t_order_item
-    defaultDatabaseStrategy:
-      standard:
-        shardingColumn: user_id
-        shardingAlgorithmName: database_inline
 
     shardingAlgorithms:
-      database_inline:
-        type: INLINE
-        props:
-          algorithm-expression: ds_${user_id % 2}
-          
-      t_order_inline:
-        type: INLINE
-        props:
-          algorithm-expression: t_order_$->{order_id % 2}
-      t_order_item_inline:
-        type: INLINE
-        props:
-          algorithm-expression: t_order_item_$->{order_id % 2}
-    keyGenerators:
-      snowflake_generator:
-        type: SNOWFLAKE
+      custom-db-sharding:
+        # 对应自定义算法的getType()返回值
+        type: CUSTOM_DB_SHARDING
+      custom-table-sharding:
+        type: CUSTOM_TABLE_SHARDING
     
 - !BROADCAST
     tables:

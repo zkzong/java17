@@ -1,0 +1,2 @@
+org.example.sb3.ss.algorithm.CustomDatabaseShardingAlgorithm
+org.example.sb3.ss.algorithm.CustomTableShardingAlgorithm

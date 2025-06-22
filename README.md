@@ -68,6 +68,7 @@ spring boot 3依赖mybatis-plus包：
 
     - INLINE
     - MOD
+    - 自定义
 
 - [ ] todo
 
