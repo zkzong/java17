@@ -75,6 +75,7 @@ spring boot 3依赖mybatis-plus包：
   - VOLUME_RANGE
   - COMPLEX
   - HINT
+  - 读写分离
 
 
 ### rabbit
