@@ -1,0 +1,54 @@
+mode:
+  type: Standalone
+  repository:
+    type: JDBC
+#    props:
+#      path: demo
+
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.163.128:3306/demo_ds_0?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    maxPoolSize: 10
+  ds_1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.163.128:3306/demo_ds_1?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    maxPoolSize: 10
+
+rules:
+- !SHADOW
+  dataSources:
+    shadow_group:
+      productionDataSourceName: ds_0
+      shadowDataSourceName: ds_1
+  tables:
+    t_order:
+      dataSourceNames:
+        - shadow_group
+      shadowAlgorithmNames:
+        - user_id_insert_match_algorithm
+        - sql_hint_algorithm
+  defaultShadowAlgorithmName: sql-hint-algorithm
+  shadowAlgorithms:
+    user_id_insert_match_algorithm:
+      type: VALUE_MATCH
+      props:
+        operation: insert
+        column: order_type
+        value: 1
+    sql-hint-algorithm:
+      type: SQL_HINT
+      props:
+        shadow: true
+        foo: bar
+
+
+
+props:
+  sql-show: true

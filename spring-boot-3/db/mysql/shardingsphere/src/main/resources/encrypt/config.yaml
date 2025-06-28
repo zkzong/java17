@@ -1,0 +1,48 @@
+mode:
+  type: Standalone
+  repository:
+    type: JDBC
+#    props:
+#      path: demo
+
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.163.128:3306/demo_ds_0?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    maxPoolSize: 10
+
+rules:
+- !ENCRYPT
+  tables:
+    t_order:
+      columns:
+        status:
+          cipher: 
+            name: status
+            encryptorName: standard_encryptor
+          assistedQuery: 
+            name: status_assisted
+            encryptorName: assisted_encryptor
+    t_order_item:
+      columns:
+        phone:
+          cipher: 
+            name: phone
+            encryptorName: standard_encryptor
+
+  encryptors:
+    standard_encryptor:
+      type: AES
+      props:
+        aes-key-value: 123456
+        digest-algorithm-name: SHA-1
+    assisted_encryptor:
+      type: assistedTest
+
+
+
+props:
+  sql-show: true

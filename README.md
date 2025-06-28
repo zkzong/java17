@@ -76,6 +76,9 @@ spring boot 3依赖mybatis-plus包：
   - COMPLEX
   - HINT
   - 读写分离
+  - encrypt
+  - shadow
+  - mask
 
 
 ### rabbit
