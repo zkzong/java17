@@ -53,14 +53,14 @@ rules:
       - t_order,t_order_item
     defaultDatabaseStrategy:
       standard:
-        shardingColumn: user_id
+        shardingColumn: order_id
         shardingAlgorithmName: database_inline
 
     shardingAlgorithms:
       database_inline:
         type: INLINE
         props:
-          algorithm-expression: ds_${user_id % 2}
+          algorithm-expression: ds_${order_id % 2}
           allow-range-query-with-inline-sharding: true
           
       t_order_inline:

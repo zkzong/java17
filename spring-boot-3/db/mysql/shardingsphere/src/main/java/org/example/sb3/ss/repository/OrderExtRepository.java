@@ -10,9 +10,13 @@ public interface OrderExtRepository {
 
     List<Order> selectRange();
 
+    List<Order> selecteq();
+
     List<Order> selectgt();
 
     List<Order> selectlt();
+
+    List<Order> selectIn();
 
     List<Order> selectByAddress();
 

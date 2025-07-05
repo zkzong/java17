@@ -23,6 +23,12 @@ public class OrderExtRepositoryTest {
     }
 
     @Test
+    public void selecteq() {
+        List<Order> orders = orderExtRepository.selecteq();
+        System.out.println(orders);
+    }
+
+    @Test
     public void selectgt() {
         List<Order> orders = orderExtRepository.selectgt();
         System.out.println(orders);
@@ -31,6 +37,12 @@ public class OrderExtRepositoryTest {
     @Test
     public void selectlt() {
         List<Order> orders = orderExtRepository.selectlt();
+        System.out.println(orders);
+    }
+
+    @Test
+    public void selectIn() {
+        List<Order> orders = orderExtRepository.selectIn();
         System.out.println(orders);
     }
 
