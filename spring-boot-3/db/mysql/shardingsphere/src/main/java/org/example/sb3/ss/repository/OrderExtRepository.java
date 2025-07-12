@@ -18,6 +18,8 @@ public interface OrderExtRepository {
 
     List<Order> selectIn();
 
+    List<Order> selectMod();
+
     List<Order> selectByAddress();
 
 }

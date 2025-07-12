@@ -1,5 +1,6 @@
 package org.example.sb3.ss.repository;
 
+import org.apache.shardingsphere.infra.hint.HintManager;
 import org.example.sb3.ss.entity.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -50,5 +51,14 @@ public class OrderExtRepositoryTest {
     public void selectByAddress() {
         List<Order> orders = orderExtRepository.selectByAddress();
         System.out.println(orders);
+    }
+
+    @Test
+    public void hint() {
+        HintManager hintManager = HintManager.getInstance();
+        hintManager.addTableShardingValue("t_order", 1);
+        List<Order> orders = orderExtRepository.selectMod();
+        System.out.println(orders);
+        hintManager.close();
     }
 }

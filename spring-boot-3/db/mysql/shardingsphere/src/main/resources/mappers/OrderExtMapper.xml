@@ -30,6 +30,10 @@
         SELECT * FROM t_order WHERE order_id in (2, 3, 4)
     </select>
 
+    <select id="selectMod" resultMap="baseResultMap">
+        SELECT * FROM t_order WHERE mod(order_id, 2) = 1
+    </select>
+
     <select id="selectByAddress" resultMap="baseResultMap">
         SELECT * FROM t_order WHERE address_id = 5
     </select>

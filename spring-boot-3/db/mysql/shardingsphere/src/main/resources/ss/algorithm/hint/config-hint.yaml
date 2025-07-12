@@ -35,7 +35,7 @@ rules:
         actualDataNodes: ds_$->{0..1}.t_order_${value}
         tableStrategy:
           standard:
-            shardingColumn: order_id
+#            shardingColumn: order_id
             shardingAlgorithmName: t_order_inline
 #        keyGenerateStrategy:
 #          column: order_id
@@ -44,7 +44,7 @@ rules:
         actualDataNodes: ds_$->{0..1}.t_order_item_${value}
         tableStrategy:
           standard:
-            shardingColumn: order_id
+#            shardingColumn: order_id
             shardingAlgorithmName: t_order_item_inline
 #        keyGenerateStrategy:
 #          column: order_item_id
@@ -53,14 +53,14 @@ rules:
       - t_order,t_order_item
     defaultDatabaseStrategy:
       standard:
-        shardingColumn: user_id
+        shardingColumn: order_id
         shardingAlgorithmName: database_inline
 
     shardingAlgorithms:
       database_inline:
         type: INLINE
         props:
-          algorithm-expression: ds_${user_id % 2}
+          algorithm-expression: ds_${order_id % 2}
           
       t_order_inline:
         type: HINT_INLINE
