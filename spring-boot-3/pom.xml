@@ -28,7 +28,7 @@
         <module>i18n</module>
         <module>upload</module>
         <module>sentinel</module>
-        <module>seata</module>
+        <module>seata-demo</module>
     </modules>
 
     <properties>

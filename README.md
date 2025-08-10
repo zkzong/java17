@@ -96,3 +96,9 @@ https://www.bilibili.com/video/BV1Sw4m117aj/?spm_id_from=333.880.my_history.page
 @ApolloJsonValue
 
 @ApolloConfigChangeListener监听配置变化
+
+### seata-demo
+
+nacos
+
+seata
