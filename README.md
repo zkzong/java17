@@ -10,6 +10,7 @@ CPU飙升100%
 
 ## designpattern
 
+pay 策略工厂模式
 
 
 ## Spring Boot 3
