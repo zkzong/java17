@@ -209,8 +209,11 @@ public class ListTest {
         studentList.add(student1);
         Student student2 = new Student(2, "python", 2);
         studentList.add(student2);
-        studentList.sort(Comparator.comparing(Student::getName, Comparator.nullsFirst(Comparator.naturalOrder()))
-                .thenComparing(Student::getAge, Comparator.nullsFirst(Comparator.naturalOrder())).thenComparing(Student::getId));
+        studentList.sort(
+                Comparator.comparing(Student::getName, Comparator.nullsFirst(Comparator.naturalOrder()))
+                        .thenComparing(Student::getAge, Comparator.nullsFirst(Comparator.naturalOrder()))
+                        .thenComparing(Student::getId, Comparator.nullsLast(Integer::compare))
+        );
         System.out.println(studentList);
     }
 
