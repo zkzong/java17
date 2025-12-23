@@ -20,6 +20,7 @@
         <module>java</module>
         <module>spring-boot-3</module>
         <module>designpattern</module>
+        <module>designpattern/bigtalkdesignpattern</module>
     </modules>
 
 </project>

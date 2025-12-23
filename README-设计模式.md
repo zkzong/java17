@@ -6,6 +6,8 @@
 
 **pay** 策略工厂模式
 
+https://github.com/initchu/design-patterns
+
 **login** 策略工厂模式
 
 https://juejin.cn/post/7509408640438059008
