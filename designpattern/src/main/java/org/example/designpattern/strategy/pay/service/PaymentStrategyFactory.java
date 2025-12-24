@@ -13,8 +13,8 @@ public class PaymentStrategyFactory {
     public final ConcurrentHashMap<PayEnum, PaymentStrategy> handlerStrategyMap = new ConcurrentHashMap<>();
 
     @Autowired
-    public PaymentStrategyFactory(List<PaymentStrategy> iHandlers) {
-        iHandlers.forEach(x -> handlerStrategyMap.put(x.getHandleStrategy(), x));
+    public PaymentStrategyFactory(List<PaymentStrategy> strategyList) {
+        strategyList.forEach(strategy -> handlerStrategyMap.put(strategy.getHandleStrategy(), strategy));
     }
 
     public PaymentStrategy getPayment(PayEnum payEnum) {

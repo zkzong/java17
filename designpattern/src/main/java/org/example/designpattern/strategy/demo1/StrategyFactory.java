@@ -2,10 +2,13 @@ package org.example.designpattern.strategy.demo1;
 
 import org.example.designpattern.strategy.demo1.service.StrategyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @Author: zongz
@@ -19,8 +22,8 @@ public class StrategyFactory {
 
     @Autowired
     public StrategyFactory(List<StrategyService> strategyServices) {
-        // this.strategyMap = strategyServices.stream()
-        //         .collect(Collectors.toMap(Bean::getBeanName, Function.identity()));
+         //this.strategyMap = strategyServices.stream()
+         //        .collect(Collectors.toMap(Bean::getBeanName, Function.identity()));
     }
 
     public StrategyService getStrategy(String id) {

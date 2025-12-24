@@ -2,11 +2,19 @@
 
 **demo1** 策略模式
 
-**price** 策略模式
+**shopping** 策略工厂模式
+
+ShoppingService1Impl：使用if else判断
+
+ShoppingService2Impl：使用策略模式
+
+ShoppingService3Impl：使用工厂策略模式
 
 **pay** 策略工厂模式
 
 https://github.com/initchu/design-patterns
+
+使用枚举方式
 
 **login** 策略工厂模式
 
