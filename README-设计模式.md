@@ -1,5 +1,7 @@
 # designpattern
 
+## 策略模式
+
 **calculator** 策略模式
 
 https://mp.weixin.qq.com/s/qa8aQu62-uxpLKMG5KDGnA
@@ -52,6 +54,10 @@ https://juejin.cn/post/7509408640438059008
 这里利用 Spring 的自动装配，将所有@Service标记的LoginStrategy实现类注入到strategyMap中，键为 Bean 名称（默认是类名首字母小写，如passwordLoginStrategy），但我们在策略类中通过getLoginType()返回自定义的类型标识，所以需要在配置类中调整 Bean 名称：
 
 然后在策略类中重写getLoginType()返回和前端约定的类型标识（如 "password"），并在工厂类中建立类型标识到 Bean 的映射：
+
+**task** 策略工厂模式
+
+**season** 策略工厂模式
 
 ## 大话设计模式
 
