@@ -1,14 +1,24 @@
 # designpattern
 
-**demo1** 策略模式
+**calculator** 策略模式
+
+https://mp.weixin.qq.com/s/qa8aQu62-uxpLKMG5KDGnA
+
+Operation - 使用Map
+
+command - 策略工厂
 
 **shopping** 策略工厂模式
+
+https://github.com/ZeroNeo369/shopping
+
+https://juejin.cn/post/7375386125798506522
 
 ShoppingService1Impl：使用if else判断
 
 ShoppingService2Impl：使用策略模式
 
-ShoppingService3Impl：使用工厂策略模式
+ShoppingService3Impl：使用工厂策略模式 - 使用枚举方式
 
 **pay** 策略工厂模式
 
